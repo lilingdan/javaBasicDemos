@@ -5,12 +5,17 @@ package pers.lld.basic.datatype;
  * 用以说明final修饰变量的规定
  */
 public class FinalDemo {
+
     private final String ERROR; //Error1.final修饰类的属性要在定义时就赋值(或必须在调用构造方法时)
     public final String TAG = "FinalDemo";
     private static final String STATIC_TAG = "FinalDemo.CLASS";
 
     FinalDemo(){
         ERROR = "give content when construct ";
+    }
+
+    FinalDemo(String string){
+        ERROR = string;
     }
 
 

@@ -18,9 +18,10 @@ public class FinalSonDemo extends FinalDemo{
 
 
 //    //Error1.父类的final 方法禁止子类重写
-//    final public String getFullName() {
-//        return personFirstName + "·" + familyLastName;
-//    }
+////    final public String getFullName() {
+////        return personFirstName + "·" + familyLastName;
+////    }
+
 
     public static void main(String[] args){
         FinalSonDemo demo = new FinalSonDemo();
