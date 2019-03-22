@@ -16,15 +16,26 @@ public class FinalStaticDemo {
         System.out.print("finalAndStatic:" + finalAndStatic + " finalNotStatic:" + finalNotStatic + "\n");
     }
 
+    public static String getMySecrestTag(){return "TAG";}
+
+    public static void printStaticMethod(){
+        System.out.println("printStaticMethod");
+    }
+
+    public String getMyNotSecrest(){return "TAG";}
+
 
     public static void main(String[] args){
-        Class c = FinalStaticDemo.class.getClass();
 
         FinalStaticDemo demo1 = new FinalStaticDemo();
         FinalStaticDemo demo2 = new FinalStaticDemo();
 
+
+
         demo1.print2Num();
         Random random1 = demo1.random;
         demo2.print2Num();
+
+        demo1.printStaticMethod();
     }
 }

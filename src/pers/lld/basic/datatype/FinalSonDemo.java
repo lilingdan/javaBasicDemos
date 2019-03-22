@@ -1,5 +1,7 @@
 package pers.lld.basic.datatype;
 
+import javax.swing.plaf.PanelUI;
+
 /**
  * 此类用以说明父类在子类中的final修饰方法都不可以修改
  */
@@ -25,11 +27,18 @@ public class FinalSonDemo extends FinalDemo{
 
     public static void main(String[] args){
         FinalSonDemo demo = new FinalSonDemo();
-        //demo.TAG = 200;  //Error2.父的final属性不可重新赋值
+
+        //inquryDemo.TAG = 200;  //Error2.父的final属性不可重新赋值
+
         demo.setFirstName("Gaga");
         System.out.print("FinalSonDemo 对象的全名是" + demo.getFullName());
 
     }
+
+
+    public static String getClassNam(){return "TAG";}
+
+
 
 
 }

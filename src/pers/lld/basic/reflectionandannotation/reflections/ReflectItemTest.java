@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class ReflectItemTest {
 
-    //Constructor demo
+    //Constructor inquryDemo
     public void showConstructors() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Class itemClass = ReflectItem.class;
 

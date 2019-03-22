@@ -1,7 +1,7 @@
 package pers.lld.basic.reflectionandannotation.reflections;
 
 public class ReflectItem {
-    private String name = "缺失";
+    private final String name;
     public  String nickName = "缺失";
     private int age = 0;
 
@@ -36,4 +36,6 @@ public class ReflectItem {
     private boolean isVaildNickName(String name){
         return !name.contains("ISIS");
     }
+
+
 }

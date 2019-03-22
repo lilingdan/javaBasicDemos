@@ -1,6 +1,7 @@
 package pers.lld.basic.reflectionandannotation.reflections;
 
 public class TestClassType {
+    public static String name = "me";
     //构造函数
     public TestClassType(){
         System.out.println("----构造函数---");
