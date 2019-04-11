@@ -15,6 +15,7 @@ public class Filtter {
     private String userName;
     @Column("nickName")
     private String nickName;
+    @Column("age")
     private int age;
     private String city;
     @Column("Email")
@@ -82,7 +83,7 @@ public class Filtter {
         Table t = (Table) c.getAnnotation(Table.class);
         String tableName = t.value();
 
-        sb.append("select * from ").append(tableName).append(" where1=1 ");
+        sb.append("select * from ").append(tableName).append(" where 1=1 ");
 
         // 3.历遍所有的字段
         Field[] fArray = c.getDeclaredFields();
@@ -94,11 +95,15 @@ public class Filtter {
                 continue;
 
             }
+
+
             Column column = field.getAnnotation(Column.class);
             String columnName = column.value();
             // 4.2拿到字段的值
             String filedName = field.getName();
+
             String getMethodName = "get" + filedName.substring(0, 1).toUpperCase() + filedName.substring(1);
+
             Object fieldValue = null;
             //调用对应的get方法，获取当前的数值
             try {
@@ -138,6 +143,7 @@ public class Filtter {
 
     public static void main(String[] args) {
         Filtter filtter = new Filtter();
+        filtter.setAge(20);
         filtter.setNickName("lld");
         String str = query(filtter);
         System.out.println(str);

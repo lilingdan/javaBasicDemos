@@ -25,13 +25,13 @@ public class FruitInfoUtil {
 
         // 以下两端代码用于区分getAnnotations/getDeclaredAnnotations
 
-        System.out.println("类调用getAnnotations：");  //   方法2
+        System.out.println("调用getAnnotations：");  //   方法2
         Annotation[] annos = clazz.getAnnotations();
         for (Annotation annotation: annos){
             System.out.println(" 类：" + clazz.getName() + "，注解：" + annotation.toString());
         }
 
-        System.out.println("\n类调用getDeclaredAnnotations：");  //   方法4
+        System.out.println("\n调用getDeclaredAnnotations：");  //   方法4
         Annotation[] anno2s = clazz.getDeclaredAnnotations();
         for (Annotation annotation: anno2s){
             System.out.println(" 类：" + clazz.getName() + "，注解：" + annotation.toString());

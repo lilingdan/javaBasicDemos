@@ -19,6 +19,7 @@ public class MetadataDemo {
  *          3.一般如果需要在运行时去动态获取注解信息(反射)，那只能用 RUNTIME 注解，比如@Deprecated使用
  */
 
+
 @Retention(RetentionPolicy.RUNTIME)
 @interface LifeAnnotation{
     int id();
@@ -69,6 +70,7 @@ public class MetadataDemo {
 
 class AppleClass{
 
+    @FieldFruitAnnotation
     private String appleColor;
 
 
@@ -89,22 +91,30 @@ class AppleClass{
 }
 
 
-/**
- * 4. @Inherited
- * 一个超类被 @Inherited 注解过的注解进行注解的话，那么如果它的子类没有被任何注解应用的话，
- * 那么这个子类就继承了超类的注解。
- *
- * **这里一定要记住，使用Inherited声明出来的注解，只有在类上使用时才会有效，对方法，属性等其他无效。
- */
 
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
+@Repeatable(FatherAnnotationsS.class)
 @interface FatherAnnotations{
     String value() default "";
 }
 
 
-@FatherAnnotations("fatherAnno")
+/**
+ * 容器
+ */
+@Inherited
+@Retention(RetentionPolicy.RUNTIME)
+@interface FatherAnnotationsS{
+    FatherAnnotations[] value();
+}
+
+
+/**
+ *  todo
+ */
+@FatherAnnotations("baba")
+//@FatherAnnotationsS({@FatherAnnotations("fatherAnno"),@FatherAnnotations("fatherAnno22222")})
 class FatherClass{
 
 }
@@ -112,10 +122,12 @@ class FatherClass{
 
 class SonClass extends FatherClass {
     public static void main(String[] args) {
+
+        //判断是否有注解
         boolean hasAnnotation = SonClass.class.isAnnotationPresent(FatherAnnotations.class);
         if (hasAnnotation) {
             FatherAnnotations testAnnotation = SonClass.class.getAnnotation(FatherAnnotations.class);
-            System.out.println("SonClass 存在注释 FatherAnnotations value " + testAnnotation.value());
+            System.out.println("SonClass 存在注释 " + testAnnotation.toString());
         }
 
     }
