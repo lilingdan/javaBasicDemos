@@ -30,8 +30,6 @@ public class OverwriterFather {
 
 class Son extends OverwriterFather{
     public Son(){
-        super();
-        super.doSomething();
     }
 
 
@@ -59,6 +57,6 @@ class Son extends OverwriterFather{
     }
 
     public static void main(String[] args) {
-        new Son().doIt();
+        new Son();
     }
 }

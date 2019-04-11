@@ -13,9 +13,11 @@ class Sample{
 
 class EqualSample{
     private String name = "enen";
+    private int age =  10;
 
     @Override
     public boolean equals(Object obj) {
+
         if (obj instanceof EqualSample){
             if (this.name.equals(((EqualSample) obj).name)){
                 return true;
@@ -23,4 +25,6 @@ class EqualSample{
         }
         return false;
     }
+
+
 }
